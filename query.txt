@@ -1,0 +1,119 @@
+{
+  greet
+}
+
+
+{
+  users{
+    id
+    firstName
+    lastName
+    email
+    password
+    quotes{
+      name
+      by
+    }
+  }
+}
+
+
+{
+  quotes{
+    name
+    by
+  }
+}
+
+{
+  user(id:"23131"){
+    id
+    firstName
+    lastName
+    email
+    password
+    quotes{
+      name
+      by
+    }
+  }
+}
+
+{
+  quotebyuser(by:"23131"){
+    name
+    by
+  }
+}
+
+
+query getUserById($userid:ID!){
+  user(id:$userid){
+    id
+    firstName
+    lastName
+    email
+    password
+    quotes{
+      name
+      by
+    }
+  }
+}
+{
+  "userid":"23131"
+}
+
+
+mutation {
+  FuncCreateUser(
+    firstName:"a",
+    lastName:"a",
+    email:"test@aasdadasd.com",
+    password:"12345"
+  )
+  {
+  	id,
+    firstName
+    lastName
+    email
+    password
+  }
+}
+
+
+mutation MutaCreateUser($User: UserObj!) {
+  CreateUser(NewUser: $User) {
+    id
+    firstName
+    lastName
+    email
+    password
+  }
+}
+{
+  "NewUser": {
+    "firstName":"a",
+    "lastName":"a",
+    "email":"test@aasdadasd.com",
+    "password":"12345"  
+  }  
+}
+
+mutation MutaStoreCreateUser($User: UserObj!) {
+  StoreCreateUser(NewUser: $User) {
+    id
+    firstName
+    lastName
+    email
+    password
+  }
+}
+{
+  "User": {
+    "firstName":"a",
+    "lastName":"a",
+    "email":"test@aasdadasd.com",
+    "password":"12345"  
+  }  
+}
